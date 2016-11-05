@@ -1,18 +1,20 @@
 package br.edu.ifsc.nerdstore.beans;
 
+import java.math.BigDecimal;
+
 public class Produto {
 
 	private String id;
 	private String nome;
 	private String urlImagem;
-	private Double preco;
+	private BigDecimal preco;
 	
 
 	public Produto() {
-		this("","","",0d);
+		this("","","",new BigDecimal(0));
 	}
 	
-	public Produto(String id, String nome, String urlImagem, Double preco) {
+	public Produto(String id, String nome, String urlImagem, BigDecimal preco) {
 		this.id = id;
 		this.nome = nome;
 		this.urlImagem = urlImagem;
@@ -38,13 +40,15 @@ public class Produto {
 		this.urlImagem = urlImagem;
 	}
 
-	public Double getPreco() {
+	public BigDecimal getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
+
+	
 	
 	
 }
