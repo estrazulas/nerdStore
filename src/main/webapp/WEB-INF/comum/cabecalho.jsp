@@ -7,16 +7,14 @@
 	<link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
 	<script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<link href="<c:url value="resources/css/login.css"/>" rel="stylesheet"/>
+	<link href="<c:url value="resources/css/loja.css"/>" rel="stylesheet"/>
 </head>
 <body>
 
 <c:if test="${not empty usuarioLogado}">
-		Logado como ${usuarioLogado.email}<br />
-	<form action="executa" method="POST">
-		<input type="hidden" name="tarefa" value="Logout" /> <input
-			type="submit" value="Deslogar" />
-	</form>
+	<div class="container">
+		<c:import url="/WEB-INF/comum/nav.jsp"/>
+	</div>
 </c:if>
 
 <!-- Container principal da página -->
@@ -30,3 +28,4 @@
  		 ${mensagem}
 	</div>
 </c:if>
+

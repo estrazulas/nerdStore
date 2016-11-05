@@ -38,3 +38,11 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+#produtoslista {
+ background: white;
+ padding:60px;
+ border-radius: 1em;
+ 
+}

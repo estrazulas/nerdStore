@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.edu.ifsc.nerdstore.controllers.LoginController;
+import br.edu.ifsc.nerdstore.controllers.StoreController;
 
 @WebServlet(urlPatterns = "/executa")
 public class Dispatcher extends HttpServlet {
@@ -21,19 +22,27 @@ public class Dispatcher extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String tarefa = req.getParameter("tarefa");
+		
 		String paginaDestino = "";
 		
 		if (tarefa == null) {
-			throw new IllegalArgumentException(
-					"Voc� esqueceu de passar a tarefa no form!");
+			tarefa = (String) req.getAttribute("tarefa");
+			if(tarefa == null ){
+				throw new IllegalArgumentException(
+						"Você esqueceu de passar a tarefa no request!");
+			}
 		}
 		
 		switch (tarefa) {
-			case "efetuaLogin":
-				paginaDestino = new LoginController().efetuaLogin(req,resp);
+			case "loja":
+				paginaDestino = new StoreController().listaProdutos(req,resp);
+				break;
+			case "logoff":
+				paginaDestino = new LoginController().logoff(req,resp);
 			break;
 		default:
-				paginaDestino ="store.jsp";
+				req.setAttribute("mensagem", "Este endereço não pode ser acessado!");
+				paginaDestino ="index.jsp";
 			break;
 		}
 		

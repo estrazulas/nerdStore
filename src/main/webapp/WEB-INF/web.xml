@@ -3,5 +3,12 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     version="3.0">
-    <display-name>Servlet 3.0 Web Application</display-name>
+    <display-name>NerdStore</display-name>
+    
+    <context-param>
+		<param-name>
+			javax.servlet.jsp.jstl.fmt.localizationContext
+		</param-name>
+		<param-value>mensagens</param-value>
+	</context-param>
 </web-app>

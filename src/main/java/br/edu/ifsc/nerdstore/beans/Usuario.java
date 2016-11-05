@@ -2,7 +2,6 @@ package br.edu.ifsc.nerdstore.beans;
 
 public class Usuario {
 
-	private String uuid;
 	private String email;
 	private String senha;
 
@@ -21,5 +20,4 @@ public class Usuario {
 	public String getEmail() {
 		return email;
 	}
-
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import br.edu.ifsc.nerdstore.beans.Usuario;
 
-@WebFilter(urlPatterns = "/paginas/*")
+@WebFilter(urlPatterns = "/*")
 public class FiltroAcesso implements Filter {
 
 	@Override
@@ -25,9 +26,16 @@ public class FiltroAcesso implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String uri = req.getRequestURI();
+		
 		String usuario = getUsuario(req);
-		System.out.println("Usuario " + usuario + " acessando a URI " + uri);
-		chain.doFilter(request, response);
+		
+		if(!usuario.equals("<deslogado>") && (uri.equals("/nerdstore/") || uri.equals("/nerdstore/index.jsp") || uri.equals("/nerdstore/home") ) ){
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/executa");
+			req.setAttribute("tarefa", "loja");
+			dispatcher.forward(req, response);
+		}else{
+			chain.doFilter(request, response);
+		}
 	}
 
 	private String getUsuario(HttpServletRequest req) {
