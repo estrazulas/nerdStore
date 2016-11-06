@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.edu.ifsc.nerdstore.beans.CarrinhoCompras;
 import br.edu.ifsc.nerdstore.beans.Usuario;
 import br.edu.ifsc.nerdstore.dao.UsuarioDAO;
 
@@ -36,11 +37,12 @@ public class LoginController extends HttpServlet  {
 		String destino="";
 		
 		if (usuario == null) {
-			req.setAttribute("mensagem", "Usu√°rio inv√°lido!");
+			req.setAttribute("mensagem", "Usu·rio inv·lido!");
 			destino = "index.jsp";
 		} else {
 			HttpSession session = req.getSession();
 			session.setAttribute("usuarioLogado", usuario);
+			session.setAttribute("carrinho", new CarrinhoCompras());
 			destino = "/executa";
 			req.setAttribute("tarefa", "loja");
 		}
@@ -48,6 +50,7 @@ public class LoginController extends HttpServlet  {
 		RequestDispatcher dispatcher = req.getRequestDispatcher(destino);
 		dispatcher.forward(req, resp);
 	}
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,6 +60,7 @@ public class LoginController extends HttpServlet  {
 
 	public String logoff(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getSession().removeAttribute("usuarioLogado");
+		req.getSession().removeAttribute("carrinho");
 		return "index.jsp";
 	}
 }

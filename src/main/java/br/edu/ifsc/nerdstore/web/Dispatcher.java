@@ -29,7 +29,7 @@ public class Dispatcher extends HttpServlet {
 			tarefa = (String) req.getAttribute("tarefa");
 			if(tarefa == null ){
 				throw new IllegalArgumentException(
-						"VocÃª esqueceu de passar a tarefa no request!");
+						"Você esqueceu de passar a tarefa no request!");
 			}
 		}
 		
@@ -41,7 +41,7 @@ public class Dispatcher extends HttpServlet {
 				paginaDestino = new LoginController().logoff(req,resp);
 			break;
 		default:
-				req.setAttribute("mensagem", "Este endereÃ§o nÃ£o pode ser acessado!");
+				req.setAttribute("mensagem", "Este endereço não pode ser acessado!");
 				paginaDestino ="index.jsp";
 			break;
 		}

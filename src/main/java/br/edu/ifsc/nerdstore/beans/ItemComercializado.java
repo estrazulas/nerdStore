@@ -2,6 +2,8 @@ package br.edu.ifsc.nerdstore.beans;
 
 import java.math.BigDecimal;
 
+import br.edu.ifsc.nerdstore.util.Util;
+
 public class ItemComercializado {
 
 	private String id;
@@ -9,16 +11,13 @@ public class ItemComercializado {
 	private Integer quantidade;
 	private BigDecimal totalDoItem;
 	
-	public ItemComercializado(){
-		this("", "", new Integer(0), new BigDecimal(0));
+	public ItemComercializado(Produto produto, Integer quantidade){
+		this.id = Util.geraUID();
+		this.idProduto = produto.getId();
+		this.quantidade = quantidade;
+		this.totalDoItem = produto.getPreco().multiply(BigDecimal.valueOf(quantidade));
 	}
 	
-	public ItemComercializado(String id, String idProduto, Integer quantidade, BigDecimal totalDoItem) {
-		this.id = id;
-		this.idProduto = idProduto;
-		this.quantidade = quantidade;
-		this.totalDoItem = totalDoItem;
-	}
 	public String getId() {
 		return id;
 	}
