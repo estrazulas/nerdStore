@@ -54,3 +54,14 @@ div.row {
 .row + .row {
 border-top:0;
 }
+
+#linkUser {
+	max-width: 360px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+div.crud{
+	max-width: 360px;
+	margin: 0 auto;
+}

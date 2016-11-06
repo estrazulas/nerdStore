@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import br.edu.ifsc.nerdstore.beans.Usuario;
 
 @WebFilter(urlPatterns = "/*")
-public class FiltroAcesso implements Filter {
+public class FiltroPublico implements Filter {
 
 	@Override
 	public void destroy() {
@@ -26,16 +26,39 @@ public class FiltroAcesso implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String uri = req.getRequestURI();
-		
+		System.out.println(uri);
 		String usuario = getUsuario(req);
+		String tarefa = req.getParameter("tarefa");
 		
-		if(!usuario.equals("<deslogado>") && (uri.equals("/nerdstore/") || uri.equals("/nerdstore/index.jsp") || uri.equals("/nerdstore/home") ) ){
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/executa");
-			req.setAttribute("tarefa", "loja");
+		//pagina onde login não é necessário
+		if(!usuario.equals("<deslogado>") &&  ( estaEmPaginaAberta(uri) || estaEmTarefaSemLogin(tarefa)) ){
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/executa?tarefa=loja");
+			req.setAttribute("mensagem", "Você já está logado e não pode fazer esta ação!");
 			dispatcher.forward(req, response);
 		}else{
 			chain.doFilter(request, response);
 		}
+	}
+
+	/**
+	 * Nestas tarefas o usuário se estiver logado não pode chegar na ágina
+	 * @param tarefa
+	 * @return
+	 */
+	private boolean estaEmTarefaSemLogin(String tarefa) {
+		return tarefa!=null && !tarefa.isEmpty() && (tarefa.equals("novoUsuario") || tarefa.equals("salvaUsuario") );
+	}
+
+	private boolean estaEmPaginaAberta(String uri) {
+		System.out.println(uri);
+		boolean paginaAberta = 
+				(uri.equals("/nerdstore/") || 
+				uri.equals("/nerdstore/index.jsp") || 
+				uri.equals("/nerdstore/home") 
+				
+					);
+		
+		return paginaAberta;
 	}
 
 	private String getUsuario(HttpServletRequest req) {

@@ -24,7 +24,7 @@
 
 <!-- Para retornar mensagens -->
 <c:if test="${not empty mensagem}">
-	<div class="alert alert-danger" role="alert">
+	<div class="alert alert-warning" role="alert">
   		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   		<span class="sr-only"><fmt:message key="sistema.erro"/>Erro:</span>
  		 ${mensagem}

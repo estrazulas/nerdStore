@@ -1,8 +1,10 @@
 package br.edu.ifsc.nerdstore.dao;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.edu.ifsc.nerdstore.beans.Produto;
 import br.edu.ifsc.nerdstore.beans.Usuario;
 
 
@@ -34,6 +36,18 @@ public class UsuarioDAO {
 			return usuario;
 		
 		return null;
+	}
+
+	public void adiciona(Usuario novoUsuario) {
+		USUARIOS.put(novoUsuario.getEmail(), novoUsuario);
+	}
+
+	public boolean usuarioExiste(String email) {
+		return USUARIOS.containsKey(email);
+	}
+
+	public Collection<Usuario> listarTodos() {
+		return USUARIOS.values();
 	}
 
 }

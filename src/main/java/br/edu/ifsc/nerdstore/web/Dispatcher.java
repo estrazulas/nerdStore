@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.edu.ifsc.nerdstore.controllers.LoginController;
 import br.edu.ifsc.nerdstore.controllers.StoreController;
+import br.edu.ifsc.nerdstore.controllers.UsuarioController;
 
 @WebServlet(urlPatterns = "/executa")
 public class Dispatcher extends HttpServlet {
@@ -39,7 +40,16 @@ public class Dispatcher extends HttpServlet {
 				break;
 			case "logoff":
 				paginaDestino = new LoginController().logoff(req,resp);
-			break;
+				break;
+			case "novoUsuario": 
+				paginaDestino = "/WEB-INF/publicas/usuario.jsp";
+				break;
+			case "listaUsuarios": 
+				paginaDestino = new UsuarioController().listarUsuarios(req, resp);
+				break;
+			case "salvaUsuario":
+				paginaDestino = new UsuarioController().salvaUsuario(req, resp);
+				break;
 		default:
 				req.setAttribute("mensagem", "Este endereço não pode ser acessado!");
 				paginaDestino ="index.jsp";
