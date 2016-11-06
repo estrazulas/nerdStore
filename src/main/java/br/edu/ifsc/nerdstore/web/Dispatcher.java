@@ -41,6 +41,15 @@ public class Dispatcher extends HttpServlet {
 			case "novoUsuario": 
 				paginaDestino = "/WEB-INF/publicas/usuario.jsp";
 				break;
+			case "carrinho": 
+				paginaDestino = new StoreController().verCarrinho(req, resp);
+				break;	
+			case "comprar": 
+				paginaDestino = new StoreController().comprar(req, resp);
+				break;	
+			case "removerItem":
+				paginaDestino = new StoreController().removerItem(req, resp);
+				break;					
 			case "listaUsuarios": 
 				paginaDestino = new UsuarioController().listarUsuarios(req, resp);
 				break;

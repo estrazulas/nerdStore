@@ -44,7 +44,7 @@ public class FiltroAcessoRestrito implements Filter {
 	 * @return
 	 */
 	private boolean ehTarefaRestrita(String tarefa) {
-		return tarefa == null || tarefa.isEmpty() || tarefa.equals("loja") || tarefa.equals("logoff");
+		return tarefa == null || tarefa.isEmpty() || tarefa.equals("loja") || tarefa.equals("logoff") || tarefa.equals("carrinho");
 	}
 
 	private String getUsuario(HttpServletRequest req) {

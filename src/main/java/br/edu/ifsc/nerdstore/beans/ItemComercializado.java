@@ -2,6 +2,7 @@ package br.edu.ifsc.nerdstore.beans;
 
 import java.math.BigDecimal;
 
+import br.edu.ifsc.nerdstore.dao.ProdutoDAO;
 import br.edu.ifsc.nerdstore.util.Util;
 
 public class ItemComercializado {
@@ -29,6 +30,9 @@ public class ItemComercializado {
 	}
 	public Integer getQuantidade() {
 		return quantidade;
+	}
+	public Produto getProduto(){
+		return ProdutoDAO.getInstance().buscaPorId(this.idProduto);
 	}
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;

@@ -28,23 +28,30 @@ public class CarrinhoCompras {
 	
 	public void adicionaProduto(Produto produto, Integer quantidade){
 		ItemComercializado novoItem = new ItemComercializado(produto,quantidade);
-		precoTotal.add(novoItem.getTotalDoItem());
+		itemsCarrinho.add(novoItem);
+		precoTotal = precoTotal.add(novoItem.getTotalDoItem());
 	}
 	
 	
-	public void removeProduto(ItemComercializado itemDoCarrinho){
-		this.removeItemDoCarrinho(itemDoCarrinho);
-		precoTotal.min(itemDoCarrinho.getTotalDoItem());
-		
-	}
-	
-	private void removeItemDoCarrinho(ItemComercializado itemDoCarrinho) {
-		for (Iterator<ItemComercializado> iterator = itemsCarrinho.iterator(); iterator.hasNext();) {
-			ItemComercializado itemComercializado = (ItemComercializado) iterator.next();
-			if(itemComercializado.getId().equals(itemDoCarrinho.getId())){
-				this.itemsCarrinho.remove(itemComercializado);
+	public void removeProduto(String idItem){
+		ItemComercializado itemDoCarrinho = buscaItemPeloId(idItem);
+		if(itemDoCarrinho!=null){
+			this.itemsCarrinho.remove(itemDoCarrinho);
+			precoTotal = precoTotal.subtract(itemDoCarrinho.getTotalDoItem());
+			if(precoTotal.toString().equals("0E-46")){
+				precoTotal = BigDecimal.ZERO;
 			}
 		}
+	}
+	
+	private ItemComercializado buscaItemPeloId(String idItem) {
+		for (Iterator<ItemComercializado> iterator = itemsCarrinho.iterator(); iterator.hasNext();) {
+			ItemComercializado itemComercializado = (ItemComercializado) iterator.next();
+			if(itemComercializado.getId().equals(idItem)){
+				return itemComercializado;
+			}
+		}
+		return null;
 	}
 	
 	

@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet  {
 		} else {
 			HttpSession session = req.getSession();
 			session.setAttribute("usuarioLogado", usuario);
-			session.setAttribute("carrinho", new CarrinhoCompras());
+			session.setAttribute("carrinhoCompras", new CarrinhoCompras());
 			destino = "/executa?tarefa=loja";
 		}
 		
