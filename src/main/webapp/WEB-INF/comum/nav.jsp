@@ -21,7 +21,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="compra.total"/>:<fmt:formatNumber value="${carrinho.precoTotal}" type="currency" currencySymbol="R$"/><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#"><fmt:message key="compra.vercarrinho"/></a></li>
-            
+            <li><a href="<c:url value="/executa?tarefa=listaUsuarios"/>"><fmt:message key="usuario.verusuarios"/></a></li>
             <li><a href="<c:url value="/executa?tarefa=logoff"/>"><fmt:message key="loja.sair"/></a></li>
           </ul>
           

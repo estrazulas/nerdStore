@@ -11,6 +11,7 @@
 	     <tr>
 	       <th>Id</th>
 	       <th><fmt:message key="usuario.email"/></th>
+	       <th><fmt:message key="usuario.datacadastro"/></th>
 	     </tr>
 	   </thead>
 	   <tbody>
@@ -18,6 +19,7 @@
 	     <tr>
 	       <td>${usuario.id}</td>
 	       <td>${usuario.email}</td>
+	       <td><fmt:formatDate value="${usuario.dataCadastro.time}" pattern="dd/MM/YYYY"/> </td>
 	     </tr>
 	     </c:forEach>
 	   </tbody>
