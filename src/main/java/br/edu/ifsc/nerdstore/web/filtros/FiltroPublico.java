@@ -26,7 +26,6 @@ public class FiltroPublico implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String uri = req.getRequestURI();
-		System.out.println(uri);
 		String usuario = getUsuario(req);
 		String tarefa = req.getParameter("tarefa");
 		
@@ -50,7 +49,6 @@ public class FiltroPublico implements Filter {
 	}
 
 	private boolean estaEmPaginaAberta(String uri) {
-		System.out.println(uri);
 		boolean paginaAberta = 
 				(uri.equals("/nerdstore/") || 
 				uri.equals("/nerdstore/index.jsp") || 

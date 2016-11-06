@@ -39,12 +39,19 @@ public class FiltroAcessoRestrito implements Filter {
 	}
 
 	/**
-	 * Não informou a tarefa no executa ou é acesso restrito, então redireciona para index
+	 * Não informou a tarefa no executa ou é acesso restrito
 	 * @param tarefa
 	 * @return
 	 */
 	private boolean ehTarefaRestrita(String tarefa) {
-		return tarefa == null || tarefa.isEmpty() || tarefa.equals("loja") || tarefa.equals("logoff") || tarefa.equals("carrinho");
+		return tarefa == null || 
+				tarefa.isEmpty() || 
+				tarefa.equals("loja") || 
+				tarefa.equals("logoff") || 
+				tarefa.equals("carrinho") ||
+				tarefa.equals("comprar") ||
+				tarefa.equals("removerItem")
+				;
 	}
 
 	private String getUsuario(HttpServletRequest req) {
