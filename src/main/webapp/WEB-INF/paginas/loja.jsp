@@ -3,6 +3,7 @@
 <c:import url="/WEB-INF/comum/cabecalho.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="m" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <h2 style="margin-left:10px">-<fmt:message key="loja.titulo"/></h2>
 <hr />
 
@@ -15,15 +16,15 @@
 		    </c:if>
 		    
 		    <!-- caixa do produto -->
-			 <div class="col-md-6" style="padding:20px" >
+			 <div class="col-md-6 text-center" style="padding:20px" >
 			     <div class="media">
-			       <div class="media-left">
+			       <div class="media-left" style="margin:auto;width:300px">
 			         <a href="#">
 			           <img class="media-object" src="${produto.urlImagem}" alt="${produto.nome}">
 			         </a>
 			       </div>
 			       <div class="media-body">
-			         <h4 class="media-heading">${produto.nome}</h4>
+			         <h4 class="media-heading">${fn:toUpperCase(produto.nome)}</h4>
 			         <h2><span class="label label-default"><m:moeda valor="${produto.preco}" simbolo="R$"/></span></h2>
 			         <h2><span class="label label-success"><fmt:message key="loja.comprar"/></span></h2>
 			       </div>

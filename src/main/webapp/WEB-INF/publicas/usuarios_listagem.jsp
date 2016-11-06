@@ -25,9 +25,15 @@
 	   </tbody>
 	 </table>	
 </div>
-
+<c:if test="${empty usuarioLogado}">
 <div class="container" class="text-center" >
 <a href="<c:url value="executa?tarefa=loja"/>" class="btn btn-success" role="button"><fmt:message key="loja.fazlogin"/> </a>
 </div>
+</c:if>
+<c:if test="${not empty usuarioLogado}">
+<div class="container" class="text-center" >
+<a href="<c:url value="/home"/>" class="btn btn-success" role="button"><fmt:message key="loja.voltar"/> </a>
+</div>
+</c:if>
   
 <c:import url="/WEB-INF/comum/rodape.jsp" />
