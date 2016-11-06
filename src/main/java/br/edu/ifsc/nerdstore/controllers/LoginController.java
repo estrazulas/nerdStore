@@ -43,8 +43,7 @@ public class LoginController extends HttpServlet  {
 			HttpSession session = req.getSession();
 			session.setAttribute("usuarioLogado", usuario);
 			session.setAttribute("carrinho", new CarrinhoCompras());
-			destino = "/executa";
-			req.setAttribute("tarefa", "loja");
+			destino = "/executa?tarefa=loja";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(destino);

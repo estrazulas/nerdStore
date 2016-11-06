@@ -27,11 +27,8 @@ public class Dispatcher extends HttpServlet {
 		String paginaDestino = "";
 		
 		if (tarefa == null) {
-			tarefa = (String) req.getAttribute("tarefa");
-			if(tarefa == null ){
 				throw new IllegalArgumentException(
 						"Você esqueceu de passar a tarefa no request!");
-			}
 		}
 		
 		switch (tarefa) {
