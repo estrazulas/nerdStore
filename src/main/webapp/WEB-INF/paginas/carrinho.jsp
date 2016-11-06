@@ -4,12 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="m" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<h2 style="margin-left:10px">-<fmt:message key="carrinho.titulo"/></h2>
 <hr />
 <div class="container carrinho">
 	<div class="panel-group">
 		<div class="panel panel-primary">
-	    	<div class="panel-heading">Produtos na cesta</div>
+	    	<div class="panel-heading"><h1>Produtos na cesta</h1></div>
 	    	<div class="panel-body">
 		    	<table class="table">
 				    <thead>
@@ -52,7 +51,7 @@
 </div>
 
 <c:if test="${not empty usuarioLogado}">
-	<div class="container" class="text-center" >
+	<div class="container text-center" class="text-center" >
 	<a href="<c:url value="/home"/>" class="btn btn-success" role="button"><fmt:message key="loja.voltar"/> </a>
 	</div>
 </c:if>

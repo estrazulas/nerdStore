@@ -5,7 +5,10 @@
 
 <hr />
 <div class="container">
-	<h2 style="margin-left:10px">-<fmt:message key="usuario.listagem"/></h2>
+		<div class="panel-group">
+		<div class="panel panel-primary">
+	    	<div class="panel-heading"><h1><fmt:message key="usuario.listagem"/></h1></div>
+	    	<div class="panel-body">
 	<table class="table table-striped">
 	   <thead>
 	     <tr>
@@ -24,14 +27,17 @@
 	     </c:forEach>
 	   </tbody>
 	 </table>	
+	 </div>
+	 </div>
+	 </div>
 </div>
 <c:if test="${empty usuarioLogado}">
-<div class="container" class="text-center" >
+<div class="container text-center" class="text-center" >
 <a href="<c:url value="executa?tarefa=loja"/>" class="btn btn-success" role="button"><fmt:message key="loja.fazlogin"/> </a>
 </div>
 </c:if>
 <c:if test="${not empty usuarioLogado}">
-<div class="container" class="text-center" >
+<div class="container text-center" class="text-center" >
 <a href="<c:url value="/home"/>" class="btn btn-success" role="button"><fmt:message key="loja.voltar"/> </a>
 </div>
 </c:if>

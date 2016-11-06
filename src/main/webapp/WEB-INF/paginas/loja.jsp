@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="m" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<h2 style="margin-left:10px">-<fmt:message key="loja.titulo"/></h2>
 <hr />
 
 <script type="text/javascript">
@@ -17,7 +16,10 @@
 	
 </script>
 <div class="container" id="produtoslista">
-
+		<div class="panel-group">
+		<div class="panel panel-primary">
+	    	<div class="panel-heading"><h1><fmt:message key="loja.titulo"/></h1></div>
+	    	<div class="panel-body">
  	<c:forEach var="produto" items="${produtos}" varStatus="i">
  		<c:set var="div2" value="${(((i.index+1) % 2) == 0)}"/>
 	 		<c:if test="${div2}">
@@ -50,6 +52,8 @@
 		    	</div>
 		    </c:if>
     </c:forEach>
+</div>
+</div>
 </div>
 
 <c:import url="/WEB-INF/comum/rodape.jsp" />
