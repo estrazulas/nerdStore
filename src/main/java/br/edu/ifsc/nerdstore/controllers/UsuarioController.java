@@ -16,12 +16,12 @@ public class UsuarioController {
 		String senha = req.getParameter("senha");
 		
 		if(UsuarioDAO.getInstance().usuarioExiste(email)){
-			req.setAttribute("mensagem", "Esse usuário já existe, escolha outro e-mail.");
+			req.setAttribute("mensagem", "usuario.existe");
 			retorno = "executa?tarefa=novoUsuario";
 		}else{
 			Usuario novoUsuario = new Usuario(email, senha);
 			UsuarioDAO.getInstance().adiciona(novoUsuario);
-			req.setAttribute("mensagem", "Usuario cadastrado com sucesso!");
+			req.setAttribute("mensagem", "usuario.cadastro.ok");
 		}
 		
 		

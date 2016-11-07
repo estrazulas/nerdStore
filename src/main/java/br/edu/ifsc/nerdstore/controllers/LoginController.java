@@ -37,12 +37,13 @@ public class LoginController extends HttpServlet  {
 		String destino="";
 		
 		if (usuario == null) {
-			req.setAttribute("mensagem", "Usuário inválido!");
+			req.setAttribute("mensagem", "usuario.invalido");
 			destino = "index.jsp";
 		} else {
 			HttpSession session = req.getSession();
 			session.setAttribute("usuarioLogado", usuario);
 			session.setAttribute("carrinhoCompras", new CarrinhoCompras());
+			req.setAttribute("mensagem", "sistema.bemvindo");
 			destino = "/executa?tarefa=loja";
 		}
 		

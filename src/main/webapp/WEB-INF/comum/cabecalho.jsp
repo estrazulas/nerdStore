@@ -26,8 +26,8 @@
 <c:if test="${not empty mensagem}">
 	<div class="alert alert-warning" role="alert">
   		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-  		<span class="sr-only"><fmt:message key="sistema.erro"/>Erro:</span>
- 		 ${mensagem}
+  		<span class="sr-only"><fmt:message key="sistema.erro"/></span>
+ 		 <fmt:message key="${mensagem}"/>
 	</div>
 </c:if>
 

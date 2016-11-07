@@ -32,7 +32,7 @@ public class FiltroPublico implements Filter {
 		//pagina onde login não é necessário
 		if(!usuario.equals("<deslogado>") &&  ( estaEmPaginaAberta(uri) || estaEmTarefaSemLogin(tarefa)) ){
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/executa?tarefa=loja");
-			req.setAttribute("mensagem", "Seja bem vindo!");
+			req.setAttribute("mensagem", "sistema.bemvindo");
 			dispatcher.forward(req, response);
 		}else{
 			chain.doFilter(request, response);

@@ -31,7 +31,7 @@ public class FiltroAcessoRestrito implements Filter {
 		if(usuario.equals("<deslogado>") && ehTarefaRestrita(tarefa))
 		{
 			RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-			req.setAttribute("mensagem", "Você precisa estar logado para esta ação!");
+			req.setAttribute("mensagem", "sistema.precisa.estar.logado");
 			dispatcher.forward(req, response);
 		}else{
 			chain.doFilter(request, response);

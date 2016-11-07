@@ -57,7 +57,7 @@ public class Dispatcher extends HttpServlet {
 				paginaDestino = new UsuarioController().salvaUsuario(req, resp);
 				break;
 		default:
-				req.setAttribute("mensagem", "Este endereço não pode ser acessado!");
+				req.setAttribute("mensagem", "sistema.acessonegado");
 				paginaDestino ="index.jsp";
 			break;
 		}
