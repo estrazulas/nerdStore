@@ -16,6 +16,6 @@
 		
 	</form>
 	<div id="linkUser" class="text-center" >
-	<a href="<c:url value="executa?tarefa=novoUsuario"/>" class="btn btn-warning" role="button">Não é cadastrado?</a>
+	<a href="<c:url value="executa?tarefa=novoUsuario"/>" class="btn btn-warning" role="button"><fmt:message key="usuario.naocadastrado"/> </a>
 	</div>
 <c:import url="/WEB-INF/comum/rodape.jsp"  />
