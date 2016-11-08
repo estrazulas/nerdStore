@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import br.edu.ifsc.nerdstore.beans.CarrinhoCompras;
 import br.edu.ifsc.nerdstore.beans.Usuario;
+import br.edu.ifsc.nerdstore.dao.CarrinhoDAO;
 import br.edu.ifsc.nerdstore.dao.UsuarioDAO;
 
 @WebServlet(urlPatterns = "/home")
@@ -42,7 +43,7 @@ public class LoginController extends HttpServlet  {
 		} else {
 			HttpSession session = req.getSession();
 			session.setAttribute("usuarioLogado", usuario);
-			session.setAttribute("carrinhoCompras", new CarrinhoCompras());
+			session.setAttribute("carrinhoCompras", CarrinhoDAO.getInstance().adicionaCarrinhoSeNaoTem(usuario.getId()));
 			req.setAttribute("mensagem", "sistema.bemvindo");
 			destino = "/executa?tarefa=loja";
 		}
