@@ -6,7 +6,7 @@ import java.util.Map;
 import br.edu.ifsc.nerdstore.beans.CarrinhoCompras;
 
 /**
- * Utilizado para guardar o histÛrico dos carrinhos dos usu·rios, para que no login n„o se perca
+ * Utilizado para guardar o hist√≥rico dos carrinhos dos usu√°rios, para que no login n√£o se perca
  * @author estrazulas
  *
  */

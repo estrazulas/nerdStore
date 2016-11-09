@@ -39,7 +39,7 @@ public class FiltroAcessoRestrito implements Filter {
 	}
 
 	/**
-	 * Não informou a tarefa no executa ou é acesso restrito
+	 * NÃ£o informou a tarefa no executa ou Ã© acesso restrito
 	 * @param tarefa
 	 * @return
 	 */

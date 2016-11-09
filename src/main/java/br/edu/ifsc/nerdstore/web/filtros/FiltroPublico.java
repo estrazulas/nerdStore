@@ -29,7 +29,7 @@ public class FiltroPublico implements Filter {
 		String usuario = getUsuario(req);
 		String tarefa = req.getParameter("tarefa");
 		
-		//pagina onde login n„o È necess·rio
+		//pagina onde login n√£o √© necess√°rio
 		if(!usuario.equals("<deslogado>") &&  ( estaEmPaginaAberta(uri) || estaEmTarefaSemLogin(tarefa)) ){
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/executa?tarefa=loja");
 			req.setAttribute("mensagem", "sistema.bemvindo");
@@ -40,7 +40,7 @@ public class FiltroPublico implements Filter {
 	}
 
 	/**
-	 * Nestas tarefas o usu·rio se estiver logado n„o pode chegar na ·gina
+	 * Nestas tarefas o usu√°rio se estiver logado n√£o pode chegar na p√°gina
 	 * @param tarefa
 	 * @return
 	 */

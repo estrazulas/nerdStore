@@ -28,7 +28,7 @@ public class Dispatcher extends HttpServlet {
 		
 		if (tarefa == null) {
 				throw new IllegalArgumentException(
-						"Você esqueceu de passar a tarefa no request!");
+						"VocÃª esqueceu de passar a tarefa no request!");
 		}
 		
 		switch (tarefa) {
